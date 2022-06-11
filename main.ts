@@ -1,4 +1,3 @@
-let rand_char_j = 0
 let rand_char_i = 0
 let country_list = [
 "australia",
@@ -75,9 +74,9 @@ let country_list = [
 let random_country = randint(0, 69)
 let randdom_country_name = country_list[random_country]
 story.printText(randdom_country_name, 0, 0)
-for (let index = 0; index < 1; index++) {
+let scrambled_name = randdom_country_name
+for (let index = 0; index < 4; index++) {
     rand_char_i = randint(0, randdom_country_name.length - 1)
-    rand_char_j = randint(0, randdom_country_name.length - 1)
-    randdom_country_name[rand_char_j] = "this".charAt(rand_char_i)
-    info.setScore(rand_char_i)
+    scrambled_name = "" + scrambled_name.substr(rand_char_i + 1, scrambled_name.length - (rand_char_i + 1)) + scrambled_name.substr(0, rand_char_i + 1)
 }
+game.showLongText(scrambled_name, DialogLayout.Full)
